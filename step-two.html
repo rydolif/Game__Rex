@@ -127,31 +127,108 @@
 			<div class="chat chat--one">
 				<img src="img/messeg.svg" alt="">
 				<div class="chat__messeg">
-					<p>Молодчинка, ти пройшов перше завадання.</p>
+					<p>Молодчинка, ти пройшов перше завдання.</p>
 					<a href="#" class="step--two">Що далі?</a>
 				</div>
 			</div>
 
 			<div class="chat chat--two">
 				<img src="img/messeg.svg" alt="">
-					<div class="chat__messeg">
-					<p>О-о-о! Поглянь, які красиві метелики.</p>
-					<p>Давай зловимо декілька по дорозі.</p>
-					<a href="#" class="step--three">Так звісно.</a>
+				<div class="chat__messeg">
+					<p>Допоможи мені вирішити завдання, щоб пройти далі.</p>
+					<a href="#" class="step--three">Яке завдання?</a>
 				</div>
 			</div>
 
 			<div class="chat chat--three">
+				<img src="img/messeg.svg" alt="">
+				<div class="chat__messeg">
+					<p>Потрібно порахувати вірно жаб ставку.</p>
+					<a href="#" class="step--four">Порахуймо!</a>
+				</div>
+			</div>
+
+			<div class="chat chat--four chat__frog">
+				<img src="img/frogs1.png" alt="" class="chat__frog_img">
+				<p class="error">Ти помилився спробуй ще раз.</p>
+				<div class="chat__frog_step">
+					<img src="img/frogs4.png" alt="" class="chat__frog_item">
+					<input type="number" class="chat__frog_input">
+				</div>
+				<div class="chat__frog_step">
+					<img src="img/frogs2.png" alt="" class="chat__frog_item">
+					<input type="number" class="chat__frog_input">
+				</div>
+				<div class="chat__frog_step">
+					<img src="img/frogs3.png" alt="" class="chat__frog_item">
+					<input type="number" class="chat__frog_input">
+				</div>
+				<a href="#" class="step--two frog--btn">Готово!</a>
+			</div>
+
+			<div class="chat chat--five">
+				<img src="img/messeg.svg" alt="">
+					<div class="chat__messeg">
+					<p>Дякую. Все правильно.</p>
+					<a href="#" class="step--six">Що далі?</a>
+				</div>
+			</div>
+
+			<div class="chat chat--six">
+				<img src="img/messeg.svg" alt="">
+					<div class="chat__messeg">
+					<p>О-о-о! Поглянь, які красиві метелики.</p>
+					<p>Давай зловимо декілька по дорозі.</p>
+					<a href="#" class="step--seven">Так звісно.</a>
+				</div>
+			</div>
+
+			<div class="chat chat--seven">
 				<img src="img/messeg.svg" alt="">
 					<div class="chat__messeg">
 					<p>Щоб їх піймати потрібно пригнути нажавши на пробіл. За це ти отримаєш монетки.</p>
 					<a href="two.html " class="step--next">Погнали...</a>
 				</div>
 			</div>
+			
 		</div>
 
 	</div>
 
 	<script src="main.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const frogBtn = document.querySelector('.frog--btn');
+			frogBtn.addEventListener('click', function(event) {
+					event.preventDefault();
+					const inputs = document.querySelectorAll('.chat__frog_input');
+					const answers = [20, 10, 60];
+					let isValid = true;
+					inputs.forEach(function(input, index) {
+							const value = parseInt(input.value);
+							if (value !== answers[index]) {
+									isValid = false;
+							}
+					});
+					if (isValid) {
+						showModal()
+					} else {
+						const errorElement = document.querySelector('.error');
+						errorElement.style.opacity = '1';
+						setTimeout(function() {
+							errorElement.style.opacity = '0';
+						}, 2000);
+					}
+			});
+
+			function showModal() {
+				document.querySelector('.chat--four').style.visibility = 'hidden';
+				document.querySelector('.chat--four').style.opacity = '0'; 
+				document.querySelector('.chat--four').style.transitionDelay = '0s'; 
+				document.querySelector('.chat--five').style.visibility = 'visible';
+				document.querySelector('.chat--five').style.opacity = '1';
+			}
+	});
+	</script>
 </body>
 </html>

@@ -196,12 +196,68 @@ svg {
 .chat a {
 	color: red;
 }
-.chat--two, .chat--three, .chat--four, .chat--five {
+.chat--two, .chat--three, .chat--four, .chat--five, .chat--six, .chat--seven {
 	visibility: hidden;
 	opacity: 0;
 	transition-delay: 1s;
 }
+.chat__frog {
+	flex-direction: column;
+	padding: 40px;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 40px;
+	width: 450px;
+	height: 550px;
+	left: -125%;
+	top: -50%;
+}
+.chat__frog img {
+	position: relative !important;
+	left: 0 !important;
+	top: 0 !important;
+	transform: translate(0, 0) !important;
+}
+.chat__frog_item{
+	width: 200px !important;
+}
+.chat__frog_step{
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.chat__frog_input {
+	width: 100%;
+	height: 50px;
+	border: none;
+	outline: none;
+	background-color: rgba(255, 255, 255, 0.7);
+	line-height: 100px;
+	font-size: 28px;
+	margin-bottom: 15px;
+	padding: 0 20px;
+}
+.frog--btn{
+	display: flex;
+	justify-content: center;
+	font-size: 28px;
+}
 
+.error {
+	opacity: 0;
+	font-size: 22px;
+	color: red;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Заборонити змінювати стилі для стрілок у всіх інпутів типу number */
+input[type=number] {
+    -moz-appearance: textfield;
+}
 @keyframes bgMov {
 	0% {
 		background-position: 0 0;

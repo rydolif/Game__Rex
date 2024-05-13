@@ -139,11 +139,54 @@
 					<a href="#" class="step--three">Біжимо звідси?</a>
 				</div>
 			</div>
-		
+
 			<div class="chat chat--three">
 				<img src="img/messeg.svg" alt="">
 					<div class="chat__messeg">
-					<p>Їх потрібно перепригнути нажавши на пробіл. За це ти отримаєш монетки.</p>
+					<p>Ні давай порахуємо їх спочатку.</p>
+					<a href="#" class="step--four">Давай?</a>
+				</div>
+			</div>
+
+			<div class="chat chat--four chat__frog">
+				<img src="img/monste__list.png" alt="" class="chat__frog_img">
+				<p class="error">Ти помилився спробуй ще раз.</p>
+				<div class="chat__frog_step">
+					<img src="img/monste__list2.png" alt="" class="chat__frog_item">
+					<input type="number" class="chat__frog_input">
+				</div>
+				<div class="chat__frog_step">
+					<img src="img/monste__list3.png" alt="" class="chat__frog_item">
+					<input type="number" class="chat__frog_input">
+				</div>
+				<div class="chat__frog_step">
+					<img src="img/monste__list1.png" alt="" class="chat__frog_item">
+					<input type="number" class="chat__frog_input">
+				</div>
+				<a href="#" class="step--two frog--btn">Готово!</a>
+			</div>
+
+			<div class="chat chat--five">
+				<img src="img/messeg.svg" alt="">
+					<div class="chat__messeg">
+					<p>Все правильно.</p>
+					<a href="#" class="step--six">Що далі?</a>
+				</div>
+			</div>
+
+			<div class="chat chat--six">
+				<img src="img/messeg.svg" alt="">
+					<div class="chat__messeg">
+					<p>Вони наближаються.</p>
+					<p>Біжимо звідси!</p>
+					<a href="#" class="step--seven">Так звісно.</a>
+				</div>
+			</div>
+		
+			<div class="chat chat--seven">
+				<img src="img/messeg.svg" alt="">
+					<div class="chat__messeg">
+					<p>Їх потрібно перестрибнути нажавши на пробіл. За це ти отримаєш монетки.</p>
 					<a href="four.html" class="step--next">Погнали...</a>
 				</div>
 			</div>
@@ -152,5 +195,39 @@
 	</div>
 
 	<script src="main.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const frogBtn = document.querySelector('.frog--btn');
+			frogBtn.addEventListener('click', function(event) {
+					event.preventDefault();
+					const inputs = document.querySelectorAll('.chat__frog_input');
+					const answers = [5, 40, 6];
+					let isValid = true;
+					inputs.forEach(function(input, index) {
+							const value = parseInt(input.value);
+							if (value !== answers[index]) {
+									isValid = false;
+							}
+					});
+					if (isValid) {
+						showModal()
+					} else {
+						const errorElement = document.querySelector('.error');
+						errorElement.style.opacity = '1';
+						setTimeout(function() {
+							errorElement.style.opacity = '0';
+						}, 2000);
+					}
+			});
+
+			function showModal() {
+				document.querySelector('.chat--four').style.visibility = 'hidden';
+				document.querySelector('.chat--four').style.opacity = '0'; 
+				document.querySelector('.chat--four').style.transitionDelay = '0s'; 
+				document.querySelector('.chat--five').style.visibility = 'visible';
+				document.querySelector('.chat--five').style.opacity = '1';
+			}
+	});
+	</script>
 </body>
 </html>

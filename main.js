@@ -22,6 +22,8 @@ if (rex__start) {
 	let stepThree = document.querySelector('.step--three');
 	let stepFour = document.querySelector('.step--four');
 	let stepFive = document.querySelector('.step--five');
+	let stepSix = document.querySelector('.step--six');
+	let stepSeven = document.querySelector('.step--seven');
 
 	if (stepTwo) {
 		stepTwo.addEventListener('click', function(e) {
@@ -63,6 +65,28 @@ if (rex__start) {
 			document.querySelector('.chat--four').style.transitionDelay = '0s'; 
 			document.querySelector('.chat--five').style.visibility = 'visible';
 			document.querySelector('.chat--five').style.opacity = '1';
+		})
+	}
+
+	if (stepSix) {
+		stepSix.addEventListener('click', function(e) {
+			e.preventDefault();
+			document.querySelector('.chat--five').style.visibility = 'hidden';
+			document.querySelector('.chat--five').style.opacity = '0'; 
+			document.querySelector('.chat--five').style.transitionDelay = '0s'; 
+			document.querySelector('.chat--six').style.visibility = 'visible';
+			document.querySelector('.chat--six').style.opacity = '1';
+		})
+	}
+
+	if (stepSeven) {
+		stepSeven.addEventListener('click', function(e) {
+			e.preventDefault();
+			document.querySelector('.chat--six').style.visibility = 'hidden';
+			document.querySelector('.chat--six').style.opacity = '0'; 
+			document.querySelector('.chat--six').style.transitionDelay = '0s'; 
+			document.querySelector('.chat--seven').style.visibility = 'visible';
+			document.querySelector('.chat--seven').style.opacity = '1';
 		})
 	}
 
